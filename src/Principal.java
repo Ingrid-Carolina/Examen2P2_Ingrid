@@ -27,26 +27,26 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Tablero = new javax.swing.JTextArea();
+        Comando = new javax.swing.JTextField();
+        Guardar = new javax.swing.JButton();
+        Cargar = new javax.swing.JButton();
+        Comenzar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Banana Eats");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Tablero.setColumns(20);
+        Tablero.setRows(5);
+        jScrollPane1.setViewportView(Tablero);
 
-        jButton1.setText("Guardar");
+        Guardar.setText("Guardar");
 
-        jButton2.setText("Cargar");
+        Cargar.setText("Cargar");
 
-        jButton3.setText("Comenzar");
+        Comenzar.setText("Comenzar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,14 +61,14 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(Guardar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                                .addComponent(jButton2)
+                                .addComponent(Cargar)
                                 .addGap(68, 68, 68)
-                                .addComponent(jButton3))
+                                .addComponent(Comenzar))
                             .addComponent(jScrollPane1)
-                            .addComponent(jTextField1))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                            .addComponent(Comando))))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,12 +78,12 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Comando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(Guardar)
+                    .addComponent(Cargar)
+                    .addComponent(Comenzar))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -124,14 +124,17 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
+    public void jugador(){
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Cargar;
+    private javax.swing.JTextField Comando;
+    private javax.swing.JButton Comenzar;
+    private javax.swing.JButton Guardar;
+    private javax.swing.JTextArea Tablero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
