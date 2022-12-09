@@ -5,22 +5,25 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 /**
  *
  * @author ADMINISTRADOR1
  */
-public class AdminB {
-     private ArrayList<Bana> listaBana = new ArrayList();
+public class AdminB implements Serializable {
+
+    private ArrayList<Bana> listaBana = new ArrayList();
     private File archivo = new File("");
-    
-     public AdminB(String path) {
+
+    private static final long SerialVersionUID = 777L;
+
+    public AdminB(String path) {
         archivo = new File(path);
     }
 
@@ -42,13 +45,15 @@ public class AdminB {
     public void setArchivo(File archivo) {
         this.archivo = archivo;
     }
-     @Override
-      public String toString() {
+
+    @Override
+    public String toString() {
         return "adminB{" + "listaBanana=" + listaBana + ", archivo=" + archivo + '}';
     }
-      public void cargarArchivo() {
+
+    public void cargarArchivo() {
         try {
-            listaBana= new ArrayList();
+            listaBana = new ArrayList();
             Bana temp;
             if (archivo.exists()) {
                 FileInputStream entrada
@@ -90,5 +95,4 @@ public class AdminB {
         }
     }
 
-      
 }

@@ -7,18 +7,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author ADMINISTRADOR1
- */
 public class AdminJug {
      private ArrayList<Jugadores> listaJug = new ArrayList();
     private File archivo = new File("");
+        
+
+    
       public AdminJug(String path) {
         archivo = new File(path);
     }

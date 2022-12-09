@@ -1,3 +1,6 @@
+
+import java.io.Serializable;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -7,9 +10,9 @@
  *
  * @author ADMINISTRADOR1
  */
-public class SubBana {
+public class SubBana implements Serializable  {
     String Sb;
-
+ private static final long SerialVersionUID =  700L;
     public SubBana() {
     }
 

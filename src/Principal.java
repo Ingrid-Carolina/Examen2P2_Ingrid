@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -24,9 +25,9 @@ static Random r = new Random();
         Imprimir(matriz);
         
         
-        jugador();
-        listaBa.add(new Bana ("@"));
-        listasub.add(new SubBana("X"));
+//        jugador();
+//        listaBa.add(new Bana ("@"));
+//        listasub.add(new SubBana("X"));
         
         try {
             admB.cargarArchivo();
@@ -138,6 +139,11 @@ static Random r = new Random();
         Cargar.setText("Cargar");
 
         Comenzar.setText("Comenzar");
+        Comenzar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ComenzarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,6 +191,50 @@ static Random r = new Random();
         // TODO add your handling code here:
         
     }//GEN-LAST:event_TableroMouseClicked
+
+    private void ComenzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComenzarMouseClicked
+        // TODO add your handling code here:
+        String com = Comando.getText();
+        String x = "X";
+        String O ="O";
+        String v = "@";
+       try {
+           if(com.equalsIgnoreCase(v) ){
+               listaBa.add(new Bana(com));
+               //AdminB admB = new AdminB("./BANANA.txt");
+               System.out.println(listaBa);
+               admB.cargarArchivo();
+                admB.setListaBana(listaBa);
+                admB.escribirArchivo();
+                JOptionPane.showMessageDialog(this, "Se creó y se guardó exitosamente un Bana!");
+                
+       }else if(com.equalsIgnoreCase(x)){
+               listasub.add(new SubBana(com));
+                admSub.cargarArchivo();
+                admSub.setListaSB(listasub);
+                admSub.escribirArchivo();
+                JOptionPane.showMessageDialog(this, "Se creó y se guardó exitosamente un SubBana!");
+                
+           }else if(com.equalsIgnoreCase(O)){
+                listaj.add(new Jugadores(com));
+                admJug.cargarArchivo();
+                admJug.setListaJ(listaj);
+                admJug.escribirArchivo();
+                JOptionPane.showMessageDialog(this, "Se creó y se guardó exitosamente un Jugadores!");
+              
+           }
+           System.out.println(listaBa);
+           System.out.println(listasub);
+           System.out.println(listaj);
+           Comando.setText("");
+
+        } catch (Exception e) {
+            System.out.println("no funciona");
+        }
+        
+        
+        
+    }//GEN-LAST:event_ComenzarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -239,9 +289,9 @@ static Random r = new Random();
     ArrayList<Jugadores> listaj = new ArrayList();
     
     
-    AdminB admB = new AdminB("./BANANA.txt");
-    AdminSB admSub = new AdminSB("./SUBBANANA.txt");
-    AdminJug admJug = new AdminJug("./Jugadores.txt");
-    
+    AdminB admB = new AdminB("./BANANA.in");
+    AdminSB admSub = new AdminSB("./SUBBANANA.in");
+    AdminJug admJug = new AdminJug("./Jugadores.in");
+
 
 }
