@@ -24,7 +24,6 @@ static Random r = new Random();
         matriz = Lectura();
         Imprimir(matriz);
         
-        
 //        jugador();
 //        listaBa.add(new Bana ("@"));
 //        listasub.add(new SubBana("X"));
@@ -135,6 +134,11 @@ static Random r = new Random();
         jScrollPane1.setViewportView(Tablero);
 
         Guardar.setText("Guardar");
+        Guardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GuardarMouseClicked(evt);
+            }
+        });
 
         Cargar.setText("Cargar");
 
@@ -236,6 +240,14 @@ static Random r = new Random();
         
     }//GEN-LAST:event_ComenzarMouseClicked
 
+    private void GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseClicked
+        // TODO add your handling code here:
+         Hilos h=new Hilos(Tablero,Comando,matriz);
+         h.matriz();
+        Thread proceso1 = new Thread(h);
+        proceso1.start();   
+    }//GEN-LAST:event_GuardarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -287,7 +299,7 @@ static Random r = new Random();
  ArrayList<Bana> listaBa = new ArrayList();
     ArrayList<SubBana> listasub = new ArrayList();
     ArrayList<Jugadores> listaj = new ArrayList();
-    
+    String [][]matriz;
     
     AdminB admB = new AdminB("./BANANA.in");
     AdminSB admSub = new AdminSB("./SUBBANANA.in");

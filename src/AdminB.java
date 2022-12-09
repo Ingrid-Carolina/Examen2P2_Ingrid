@@ -21,7 +21,7 @@ public class AdminB implements Serializable {
     private ArrayList<Bana> listaBana = new ArrayList();
     private File archivo = new File("");
 
-    private static final long SerialVersionUID = 777L;
+    //private static final long SerialVersionUID = ;
 
     public AdminB(String path) {
         archivo = new File(path);

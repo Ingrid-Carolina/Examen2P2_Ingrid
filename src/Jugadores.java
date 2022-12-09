@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public class Jugadores implements Serializable {
     private String J;
- private static final long SerialVersionUID =76543L;
+ //private static final long SerialVersionUID = ;
     public Jugadores(String J) {
         this.J = J;
     }

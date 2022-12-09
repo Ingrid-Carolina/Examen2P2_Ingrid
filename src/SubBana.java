@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public class SubBana implements Serializable  {
     String Sb;
- private static final long SerialVersionUID =  700L;
+ //private static final long SerialVersionUID ;
     public SubBana() {
     }
 
