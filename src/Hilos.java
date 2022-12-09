@@ -36,7 +36,7 @@ private boolean text =false;
         }
     }
 
-    public Hilos(JTextArea Ta, JTextField in, Bana b, String[][] matriz) {
+    public Hilos(JTextArea Ta, JTextField in, String[][] matriz, Bana b) {
         this.Ta = Ta;
         this.in = in;
         this.b = b;
@@ -92,16 +92,16 @@ private boolean text =false;
       int x2 = b.getX();
       int y2= b.getY();
        while(true){
-           if(in.equals("a")){
+           if(in.getText().equals("w")){
                b.setY(y2-1);
                y2= b.getY(); 
-           }else if(in.equals("d")){
+           }else if(in.getText().equals("a")){
               b.setX( x2-1);
                x2 =b.getX();
-           }else if(in.equals("i")){
+           }else if(in.getText().equals("d")){
                b.setX(x2+1);
                x2 =b.getX();
-           }else if(in.equals("b")){
+           }else if(in.getText().equals("s")){
                b.setY(y2+1);
                y2= b.getY(); 
            }
@@ -131,30 +131,45 @@ private boolean text =false;
       boolean exit =false;
         for (int i = 0; i <matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                if(exit  == false){
-                    x=r.nextInt(13);
-                    y=r.nextInt(32);
-                    matriz[x][y]="O";
-                    
+//                if(exit  == false){
+//                    x=r.nextInt(13);
+//                    y=r.nextInt(32);
+//                    matriz[x][y]="O";
+//                    
+//                }
+                if( i == 0 || j == 0 || i == matriz.length-1 || j == matriz[i].length-1){
+                    matriz[i][j] = "*";
+                }else if(!matriz[x][y].equals("O")){
+                    matriz[i][j] = " ";
                 }
-                if(x!= i || y != j){
-                  if(i == 0|| i== matriz.length -1 ){
-                     matriz[i][j]="*";
-                }else if(j ==0 || j ==32){
-                     matriz[i][j]="*";
-                }  else{
-                    matriz[i][j]=" ";
-                }
-                }   
-                 map += matriz[i][j];
-                 if(matriz[x][y].equalsIgnoreCase("o")){
-                     exit =true;
-                     System.out.println(exit);
-                 }
+//                
+//                if(x!= i || y != j){
+//                  if(i == 0|| i== matriz.length -1 ){
+//                     matriz[i][j]="*";
+//                }else if(j ==0 || j ==33){
+//                     matriz[i][j]="*";
+//                }  else{
+//                    matriz[i][j]=" ";
+//                }
+//                }   
+//                 map += matriz[i][j];
+//                 if(matriz[x][y].equalsIgnoreCase("o")){
+//                     exit =true;
+//                     System.out.println(exit);
+//                 }
             }
             map += "\n";
         }
-       Ta.setText(map);
+        String ma ="";
+        for (int i = 0; i < 13; i++) {
+            for (int j = 0; j < 33; j++) {
+               
+                ma += matriz[i][j];
+                
+            }
+            ma+="\n";
+      }
+       Ta.setText(ma);
   }  
 }
 

@@ -125,7 +125,7 @@ static Random r = new Random();
         jLabel1.setText("Banana Eats");
 
         Tablero.setColumns(20);
-        Tablero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Tablero.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         Tablero.setRows(5);
         Tablero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -154,6 +154,11 @@ static Random r = new Random();
                 ComenzarMouseClicked(evt);
             }
         });
+        Comenzar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComenzarActionPerformed(evt);
+            }
+        });
         Comenzar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ComenzarKeyPressed(evt);
@@ -176,9 +181,9 @@ static Random r = new Random();
                                 .addComponent(Guardar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Cargar)
-                                .addGap(68, 68, 68)
+                                .addGap(34, 34, 34)
                                 .addComponent(Comenzar))
-                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                             .addComponent(Comando))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
@@ -209,7 +214,17 @@ static Random r = new Random();
 
     private void ComenzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComenzarMouseClicked
         // TODO add your handling code here:
-        String com = Comando.getText();
+        Hilos h=new Hilos(Tablero,Comando,matriz, listaBa.get(0));
+        h.matriz();
+        Thread proceso1 = new Thread(h);
+        proceso1.start();   
+        
+    }//GEN-LAST:event_ComenzarMouseClicked
+
+    private void GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseClicked
+        // TODO add your handling code here:
+      
+         String com = Comando.getText();
         String x = "X";
         String O ="O";
         String v = "@";
@@ -247,16 +262,6 @@ static Random r = new Random();
             System.out.println("no funciona");
         }
         
-        
-        
-    }//GEN-LAST:event_ComenzarMouseClicked
-
-    private void GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseClicked
-        // TODO add your handling code here:
-        Hilos h=new Hilos(Tablero,Comando,matriz);
-        h.matriz();
-        Thread proceso1 = new Thread(h);
-        proceso1.start();   
     }//GEN-LAST:event_GuardarMouseClicked
 
     private void ComenzarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ComenzarKeyPressed
@@ -268,6 +273,10 @@ static Random r = new Random();
         // TODO add your handling code here:
 
     }//GEN-LAST:event_GuardarKeyPressed
+
+    private void ComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComenzarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComenzarActionPerformed
 
     /**
      * @param args the command line arguments
