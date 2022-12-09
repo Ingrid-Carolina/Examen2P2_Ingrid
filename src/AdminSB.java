@@ -22,7 +22,9 @@ public class AdminSB {
 
     public AdminSB() {
     }
-    
+     public AdminSB(String path) {
+        archivo = new File(path);
+    }
      public ArrayList<SubBana> getListasub() {
         return listasub;
     }

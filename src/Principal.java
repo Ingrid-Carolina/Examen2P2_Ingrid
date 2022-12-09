@@ -1,3 +1,8 @@
+
+import java.util.ArrayList;
+import java.util.Random;
+import javax.swing.DefaultListModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,7 +13,7 @@
  * @author ADMINISTRADOR1
  */
 public class Principal extends javax.swing.JFrame {
-
+static Random r = new Random();
     /**
      * Creates new form Principal
      */
@@ -17,6 +22,65 @@ public class Principal extends javax.swing.JFrame {
           Object[][] matriz = new Object[13][33];
         matriz = Lectura();
         Imprimir(matriz);
+        
+        
+        jugador();
+        listaBa.add(new Bana ("@"));
+        listasub.add(new SubBana("X"));
+        
+        try {
+            admB.cargarArchivo();
+            
+            for (Bana t : admB.getListaBana()) {
+                listaBa.add(t);
+            }
+
+        } catch (Exception e) {
+        }
+        try {
+            admSub.cargarArchivo();
+            
+            for (SubBana t : admSub.getListasub()) {
+                listasub.add(t);
+            }
+
+        } catch (Exception e) {
+        }
+        try {
+            admJug.cargarArchivo();
+            
+            for ( Jugadores t : admJug.getListaJ()) {
+                listaj.add(t);
+            }
+
+        } catch (Exception e) {
+        }
+        for (int i = 0; i < listaj.size(); i++) {
+            System.out.println(listaj.get(i));
+        }
+         String modelo_combo = Tablero.getText();
+        for (int i = 0; i < listaj.size(); i++) {
+            modelo_combo = (listaj.get(i).getJ());
+        }
+        Tablero.setText(modelo_combo);
+        
+        for (int i = 0; i < listaBa.size(); i++) {
+            System.out.println(listaBa.get(i));
+        }
+         String modelo_c = Tablero.getText();
+        for (int i = 0; i < listaBa.size(); i++) {
+            modelo_c = (listaBa.get(i).getB());
+        }
+        Tablero.setText(modelo_c);
+        
+        for (int i = 0; i < listasub.size(); i++) {
+            System.out.println(listasub.get(i));
+        }
+         String modelo = Tablero.getText();
+        for (int i = 0; i < listasub.size(); i++) {
+            modelo= (listasub.get(i).getSb());
+        }
+        Tablero.setText(modelo_c);
     }
     public void Imprimir(Object[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
@@ -157,7 +221,8 @@ public class Principal extends javax.swing.JFrame {
         });
     }
     public void jugador(){
-        
+        listaj.add(new Jugadores ("O"));
+        listaj.add(new Jugadores ("O"));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -169,4 +234,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+ ArrayList<Bana> listaBa = new ArrayList();
+    ArrayList<SubBana> listasub = new ArrayList();
+    ArrayList<Jugadores> listaj = new ArrayList();
+    
+    
+    AdminB admB = new AdminB("./BANANA.txt");
+    AdminSB admSub = new AdminSB("./SUBBANANA.txt");
+    AdminJug admJug = new AdminJug("./Jugadores.txt");
+    
+
 }
