@@ -140,7 +140,7 @@ private boolean text =false;
                 if(x!= i || y != j){
                   if(i == 0|| i== matriz.length -1 ){
                      matriz[i][j]="*";
-                }else if(j ==0 || j ==33){
+                }else if(j ==0 || j ==32){
                      matriz[i][j]="*";
                 }  else{
                     matriz[i][j]=" ";
