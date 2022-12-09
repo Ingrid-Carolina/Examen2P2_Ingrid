@@ -129,34 +129,22 @@ private boolean text =false;
       int y=0;
       String map ="";
       boolean exit =false;
+      if(exit  == false){
+                    x=r.nextInt(13);
+                    y=r.nextInt(32);
+                    matriz[x][y]="O";
+                    
+                }
         for (int i = 0; i <matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-//                if(exit  == false){
-//                    x=r.nextInt(13);
-//                    y=r.nextInt(32);
-//                    matriz[x][y]="O";
-//                    
-//                }
+//                
                 if( i == 0 || j == 0 || i == matriz.length-1 || j == matriz[i].length-1){
                     matriz[i][j] = "*";
                 }else if(!matriz[x][y].equals("O")){
                     matriz[i][j] = " ";
                 }
 //                
-//                if(x!= i || y != j){
-//                  if(i == 0|| i== matriz.length -1 ){
-//                     matriz[i][j]="*";
-//                }else if(j ==0 || j ==33){
-//                     matriz[i][j]="*";
-//                }  else{
-//                    matriz[i][j]=" ";
-//                }
-//                }   
-//                 map += matriz[i][j];
-//                 if(matriz[x][y].equalsIgnoreCase("o")){
-//                     exit =true;
-//                     System.out.println(exit);
-//                 }
+//               
             }
             map += "\n";
         }
