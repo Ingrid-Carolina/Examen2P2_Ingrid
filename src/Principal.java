@@ -20,7 +20,7 @@ static Random r = new Random();
      */
     public Principal() {
         initComponents();
-          Object[][] matriz = new Object[13][33];
+        matriz = new String[13][33];
         matriz = Lectura();
         Imprimir(matriz);
         
@@ -90,8 +90,8 @@ static Random r = new Random();
             System.out.println();
         }
     }
-      public static Object[][] Lectura() {
-        Object[][] llena = new Object[10][10];
+      public static String[][] Lectura() {
+        String[][] llena = new String[13][33];
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -125,6 +125,7 @@ static Random r = new Random();
         jLabel1.setText("Banana Eats");
 
         Tablero.setColumns(20);
+        Tablero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Tablero.setRows(5);
         Tablero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -139,6 +140,11 @@ static Random r = new Random();
                 GuardarMouseClicked(evt);
             }
         });
+        Guardar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GuardarKeyPressed(evt);
+            }
+        });
 
         Cargar.setText("Cargar");
 
@@ -146,6 +152,11 @@ static Random r = new Random();
         Comenzar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ComenzarMouseClicked(evt);
+            }
+        });
+        Comenzar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ComenzarKeyPressed(evt);
             }
         });
 
@@ -163,13 +174,13 @@ static Random r = new Random();
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Guardar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Cargar)
                                 .addGap(68, 68, 68)
                                 .addComponent(Comenzar))
                             .addComponent(jScrollPane1)
                             .addComponent(Comando))))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,11 +253,21 @@ static Random r = new Random();
 
     private void GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseClicked
         // TODO add your handling code here:
-         Hilos h=new Hilos(Tablero,Comando,matriz);
-         h.matriz();
+        Hilos h=new Hilos(Tablero,Comando,matriz);
+        h.matriz();
         Thread proceso1 = new Thread(h);
         proceso1.start();   
     }//GEN-LAST:event_GuardarMouseClicked
+
+    private void ComenzarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ComenzarKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_ComenzarKeyPressed
+
+    private void GuardarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GuardarKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_GuardarKeyPressed
 
     /**
      * @param args the command line arguments

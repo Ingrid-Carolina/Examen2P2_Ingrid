@@ -26,6 +26,14 @@ private boolean text =false;
         this.Ta = Ta;
         this.in = in;
         this.matriz = matriz;
+        System.out.println(Ta);
+        System.out.println(in);
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print("["+matriz[i][j]+"]");
+            }
+            System.out.println("");
+        }
     }
 
     public Hilos(JTextArea Ta, JTextField in, Bana b, String[][] matriz) {
@@ -97,8 +105,18 @@ private boolean text =false;
                b.setY(y2+1);
                y2= b.getY(); 
            }
-           System.out.println("");
+           System.out.println("posicion x: " +  b.getX());
+           System.out.println("posicion y: " +  b.getY());
            matriz();
+           if(b.getX()== 0||b.getX()== 32||b.getY()== 0||b.getY()== 32){
+               b.setY(7);
+               b.setX(17);
+           }
+           try{
+             Thread.sleep(100);
+           }catch(InterruptedException e){
+               
+           }
            
        }
         
@@ -120,11 +138,9 @@ private boolean text =false;
                     
                 }
                 if(x!= i || y != j){
-                    matriz[i][j]="*";
-                
-                if(i == 0|| i== matriz.length -1 ){
+                  if(i == 0|| i== matriz.length -1 ){
                      matriz[i][j]="*";
-                }else if(j ==0 || j ==32){
+                }else if(j ==0 || j ==33){
                      matriz[i][j]="*";
                 }  else{
                     matriz[i][j]=" ";
