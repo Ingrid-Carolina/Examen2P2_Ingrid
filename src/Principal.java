@@ -14,6 +14,28 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+          Object[][] matriz = new Object[13][33];
+        matriz = Lectura();
+        Imprimir(matriz);
+    }
+    public void Imprimir(Object[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print("[" + matriz[i][j] + "]" + " ");
+            }
+            System.out.println();
+        }
+    }
+      public static Object[][] Lectura() {
+        Object[][] llena = new Object[10][10];
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                llena[i][j] = "  ";
+            }
+        }
+  
+        return llena;
     }
 
     /**
@@ -40,6 +62,11 @@ public class Principal extends javax.swing.JFrame {
 
         Tablero.setColumns(20);
         Tablero.setRows(5);
+        Tablero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableroMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Tablero);
 
         Guardar.setText("Guardar");
@@ -89,6 +116,11 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TableroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableroMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_TableroMouseClicked
 
     /**
      * @param args the command line arguments
