@@ -100,6 +100,7 @@ private boolean text =false;
                x2 =b.getX();
            }else if(in.getText().equals("d")){
                b.setX(x2+1);
+               
                x2 =b.getX();
            }else if(in.getText().equals("s")){
                b.setY(y2+1);
